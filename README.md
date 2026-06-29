@@ -18,10 +18,10 @@ Users should be able to:
 
 ### Screenshot
 
-![Desktop Design](./desktop-design.jpg)
-![Mobile Design](./mobile-design.jpg)
-![Success State](./desktop-success.jpg)
-![Error State](./error-states.jpg)
+![Desktop Design]<img src = "./design/desktop-design.jpg">
+![Mobile Design]<img src = "./design/desktop-design.jpg">
+![Success State]<img src = "./design/desktop-success.jpg">
+![Error State]<img src = "./design/error-states.jpg">
 
 ### Links
 
