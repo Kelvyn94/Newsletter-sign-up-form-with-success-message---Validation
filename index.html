@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Newsletter sign-up form with success message - Frontend Mentor challenge"
+    />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="styles.css" />
+
+    <title>
+      Frontend Mentor | Newsletter sign-up form with success message
+    </title>
+  </head>
+
+  <body>
+    <main>
+      <!-- ==========================================
+      SIGNUP CARD
+      ========================================== -->
+      <div
+        class="card signup-card"
+        id="signupCard"
+        role="main"
+        aria-labelledby="signup-title"
+      >
+        <!-- Card Image -->
+        <picture class="card-image">
+          <source
+            srcset="./assets/images/illustration-sign-up-mobile.svg"
+            media="(max-width: 768px)"
+          />
+          <img
+            src="./assets/images/illustration-sign-up-desktop.svg"
+            alt="Colorful abstract illustration of a mobile phone, envelope, and various UI elements representing newsletter signup"
+            loading="lazy"
+          />
+        </picture>
+
+        <!-- Card Content -->
+        <div class="card-content">
+          <h1 id="signup-title">Stay updated!</h1>
+
+          <p class="description">
+            Join 60,000+ product managers receiving monthly updates on:
+          </p>
+
+          <ul class="benefit-list">
+            <li>Product discovery and building what matters</li>
+            <li>Measuring to ensure updates are a success</li>
+            <li>And much more!</li>
+          </ul>
+
+          <!-- Newsletter Form -->
+          <form id="newsletterForm" novalidate aria-label="Newsletter signup">
+            <div class="form-group">
+              <div class="label-row">
+                <label for="email">Email address</label>
+                <span class="error-message" id="errorMessage" role="alert">
+                  Valid email required
+                </span>
+              </div>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="email@company.com"
+                autocomplete="email"
+                aria-describedby="errorMessage"
+                required
+              />
+            </div>
+
+            <button type="submit" class="btn-subscribe">
+              Subscribe to monthly newsletter
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- ==========================================
+      SUCCESS CARD (Hidden initially)
+      ========================================== -->
+      <div
+        class="card success-card hidden"
+        id="successCard"
+        role="status"
+        aria-live="polite"
+      >
+        <div class="success-content">
+          <img
+            src="./assets/images/icon-success.svg"
+            alt=""
+            class="success-icon"
+            aria-hidden="true"
+          />
+
+          <h2>Thanks for subscribing!</h2>
+
+          <p>
+            A confirmation email has been sent to
+            <strong id="submittedEmail">ash@loremcompany.com</strong>. Please
+            open it and click the button inside to confirm your subscription.
+          </p>
+
+          <button class="btn-dismiss" id="dismissBtn">Dismiss message</button>
+        </div>
+      </div>
+    </main>
+
+    <!-- ==========================================
+    FOOTER
+    ========================================== -->
+    <footer class="attribution">
+      Challenge by
+      <a
+        href="https://www.frontendmentor.io?ref=challenge"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Frontend Mentor </a
+      >. Coded by <a href="https://github.com/Kelvyn94">Kelvyn94</a>.
+    </footer>
+
+    <script src="./script.js" defer></script>
+  </body>
+</html>

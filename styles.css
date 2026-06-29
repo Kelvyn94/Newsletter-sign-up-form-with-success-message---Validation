@@ -1,0 +1,388 @@
+/* ============================================
+   CSS Custom Properties (Variables)
+   ============================================ */
+:root {
+  /* Colors - Primary */
+  --color-primary-red: hsl(4, 100%, 67%);
+  --color-primary-red-hover: hsl(346, 100%, 66%);
+  --color-primary-red-shadow: rgba(255, 98, 87, 0.4);
+
+  /* Colors - Neutral */
+  --color-blue-800: hsl(234, 29%, 20%);
+  --color-blue-700: hsl(235, 18%, 26%);
+  --color-grey: hsl(0, 0%, 58%);
+  --color-white: hsl(0, 0%, 100%);
+  --color-error-bg: rgba(255, 98, 87, 0.1);
+
+  /* Typography */
+  --font-family: "Roboto", sans-serif;
+  --font-size-base: 1rem;
+  --font-size-small: 0.75rem;
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+
+  /* Spacing Scale */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 2.5rem;
+  --space-3xl: 3rem;
+  --space-4xl: 4rem;
+
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-lg: 36px;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-medium: 0.3s ease;
+
+  /* Max Widths */
+  --max-width-card: 928px;
+  --max-width-success: 504px;
+
+  /* Shadows */
+  --shadow-card: 0 20px 35px -10px rgba(0, 0, 0, 0.2);
+  --shadow-button: 0 16px 20px -8px var(--color-primary-red-shadow);
+}
+
+/* ============================================
+   Reset & Base Styles
+   ============================================ */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  background-color: var(--color-blue-800);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: clamp(1rem, 3vw, 2rem);
+  gap: var(--space-xl);
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* ============================================
+   Card Styles
+   ============================================ */
+.card {
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  max-width: var(--max-width-card);
+  width: 100%;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+/* ============================================
+   Signup Card
+   ============================================ */
+.signup-card {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Card Image */
+.card-image {
+  display: block;
+  line-height: 0; /* Remove extra spacing */
+}
+
+.card-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Card Content */
+.card-content {
+  padding: clamp(1.75rem, 5vw, 2.5rem);
+}
+
+/* ============================================
+   Typography
+   ============================================ */
+h1 {
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-blue-800);
+  margin-bottom: clamp(var(--space-md), 2vw, var(--space-xl));
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: clamp(2rem, 5.5vw, 3rem);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-blue-800);
+  margin-bottom: clamp(var(--space-md), 2vw, var(--space-xl));
+  line-height: 1.2;
+}
+
+.description {
+  color: var(--color-blue-800);
+  margin-bottom: var(--space-lg);
+  line-height: 1.5;
+}
+
+/* ============================================
+   Benefit List
+   ============================================ */
+.benefit-list {
+  list-style: none;
+  margin-bottom: clamp(var(--space-lg), 3vw, var(--space-2xl));
+}
+
+.benefit-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  margin-bottom: var(--space-sm);
+  color: var(--color-blue-800);
+  line-height: 1.4;
+}
+
+.benefit-list li::before {
+  content: "";
+  display: block;
+  width: 21px;
+  height: 21px;
+  background-image: url("./assets/images/icon-list.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ============================================
+   Form Styles
+   ============================================ */
+.form-group {
+  margin-bottom: var(--space-lg);
+}
+
+.label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-sm);
+}
+
+label {
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-blue-800);
+}
+
+.error-message {
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary-red);
+  display: none;
+}
+
+.error-message.show {
+  display: inline;
+}
+
+/* Input Styles */
+input {
+  width: 100%;
+  padding: var(--space-md) var(--space-xl);
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  border: 1px solid var(--color-grey);
+  border-radius: var(--radius-sm);
+  outline: none;
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+input:focus {
+  border-color: var(--color-blue-800);
+  box-shadow: 0 0 0 1px var(--color-blue-800);
+}
+
+input.error {
+  background-color: var(--color-error-bg);
+  border-color: var(--color-primary-red);
+  color: var(--color-primary-red);
+}
+
+input.error:focus {
+  border-color: var(--color-primary-red);
+  box-shadow: 0 0 0 1px var(--color-primary-red);
+}
+
+/* ============================================
+   Button Styles
+   ============================================ */
+.btn-subscribe,
+.btn-dismiss {
+  width: 100%;
+  padding: clamp(0.75rem, 2vw, 1rem) var(--space-xl);
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-white);
+  background-color: var(--color-blue-800);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-medium);
+}
+
+.btn-subscribe:hover,
+.btn-dismiss:hover,
+.btn-subscribe:focus,
+.btn-dismiss:focus {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary-red),
+    var(--color-primary-red-hover)
+  );
+  box-shadow: var(--shadow-button);
+}
+
+.btn-subscribe:focus,
+.btn-dismiss:focus {
+  outline: 2px solid var(--color-blue-800);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   Success Card
+   ============================================ */
+.success-card {
+  max-width: var(--max-width-success);
+}
+
+.success-content {
+  padding: clamp(2rem, 6vw, 3rem);
+}
+
+.success-icon {
+  width: clamp(48px, 8vw, 64px);
+  height: clamp(48px, 8vw, 64px);
+  margin-bottom: var(--space-xl);
+}
+
+.success-card p {
+  color: var(--color-blue-800);
+  line-height: 1.6;
+  margin-bottom: clamp(var(--space-xl), 4vw, var(--space-3xl));
+}
+
+.success-card strong {
+  font-weight: var(--font-weight-bold);
+}
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+.hidden {
+  display: none !important;
+}
+
+/* ============================================
+   Footer / Attribution
+   ============================================ */
+.attribution {
+  font-size: 0.6875rem;
+  text-align: center;
+  color: var(--color-white);
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+  text-decoration: underline;
+  transition: color var(--transition-fast);
+}
+
+.attribution a:hover {
+  color: var(--color-primary-red);
+}
+
+/* ============================================
+   Responsive: Desktop (768px and above)
+   ============================================ */
+@media screen and (min-width: 768px) {
+  body {
+    padding: var(--space-xl);
+  }
+
+  .signup-card {
+    flex-direction: row-reverse;
+  }
+
+  .card-image {
+    flex: 1 1 50%;
+    max-width: 50%;
+  }
+
+  .card-image img {
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .card-content {
+    flex: 1 1 50%;
+    padding: clamp(2rem, 4vw, 2.5rem);
+  }
+
+  .success-content {
+    padding: clamp(2rem, 4vw, 3rem);
+  }
+}
+
+/* ============================================
+   Responsive: Small Mobile (375px and below)
+   ============================================ */
+@media screen and (max-width: 375px) {
+  .card {
+    border-radius: 0;
+  }
+
+  .card-content {
+    padding: var(--space-xl) var(--space-lg);
+  }
+
+  .success-content {
+    padding: var(--space-xl) var(--space-lg);
+  }
+
+  .benefit-list li {
+    font-size: 0.95rem;
+  }
+}
+
+/* ============================================
+   Accessibility: Reduce Motion
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
