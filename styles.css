@@ -99,19 +99,54 @@ main {
   flex-direction: column;
 }
 
-/* Card Image */
+/* Card Image - Improved with padding */
 .card-image {
   display: block;
-  line-height: 0; /* Remove extra spacing */
+  line-height: 0;
+  padding: 0;
 }
 
+/* Mobile image padding (top, left, right) */
+@media screen and (max-width: 767px) {
+  .card-image {
+    padding: var(--space-xl) var(--space-xl) 0 var(--space-xl);
+  }
+  
+  .card-image img {
+    border-radius: var(--radius-sm);
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+/* Desktop image padding (top, right, bottom) */
+@media screen and (min-width: 768px) {
+  .card-image {
+    padding: var(--space-xl) var(--space-xl) var(--space-xl) 0;
+    flex: 1 1 50%;
+    max-width: 50%;
+  }
+  
+  .card-image img {
+    border-radius: var(--radius-sm);
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+/* Fallback for when no media query matches */
 .card-image img {
   width: 100%;
   height: auto;
   display: block;
 }
 
-/* Card Content */
+/* ============================================
+   Card Content
+   ============================================ */
 .card-content {
   padding: clamp(1.75rem, 5vw, 2.5rem);
 }
@@ -330,16 +365,6 @@ input.error:focus {
 
   .signup-card {
     flex-direction: row-reverse;
-  }
-
-  .card-image {
-    flex: 1 1 50%;
-    max-width: 50%;
-  }
-
-  .card-image img {
-    height: 100%;
-    object-fit: cover;
   }
 
   .card-content {
