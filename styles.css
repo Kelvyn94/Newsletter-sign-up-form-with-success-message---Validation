@@ -97,58 +97,28 @@ main {
 .signup-card {
   display: flex;
   flex-direction: column;
+  padding: var(--space-xl); /* Add padding to the card itself */
 }
 
-/* Card Image - Improved with padding */
+/* Card Image */
 .card-image {
   display: block;
   line-height: 0;
-  padding: 0;
+  padding: 0; /* Remove padding from image container */
 }
 
-/* Mobile image padding (top, left, right) */
-@media screen and (max-width: 767px) {
-  .card-image {
-    padding: var(--space-xl) var(--space-xl) 0 var(--space-xl);
-  }
-  
-  .card-image img {
-    border-radius: var(--radius-sm);
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-}
-
-/* Desktop image padding (top, right, bottom) */
-@media screen and (min-width: 768px) {
-  .card-image {
-    padding: var(--space-xl) var(--space-xl) var(--space-xl) 0;
-    flex: 1 1 50%;
-    max-width: 50%;
-  }
-  
-  .card-image img {
-    border-radius: var(--radius-sm);
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    display: block;
-  }
-}
-
-/* Fallback for when no media query matches */
 .card-image img {
   width: 100%;
   height: auto;
   display: block;
+  border-radius: var(--radius-sm); /* Add rounded corners to image */
 }
 
 /* ============================================
    Card Content
    ============================================ */
 .card-content {
-  padding: clamp(1.75rem, 5vw, 2.5rem);
+  padding: clamp(1.75rem, 3vw, 2.5rem) 0 0 0; /* Remove horizontal padding, keep top and bottom */
 }
 
 /* ============================================
@@ -307,10 +277,11 @@ input.error:focus {
    ============================================ */
 .success-card {
   max-width: var(--max-width-success);
+  padding: var(--space-xl); /* Add padding to success card */
 }
 
 .success-content {
-  padding: clamp(2rem, 6vw, 3rem);
+  padding: clamp(1.5rem, 4vw, 2.5rem) 0 0 0; /* Remove horizontal padding since card handles it */
 }
 
 .success-icon {
@@ -365,15 +336,35 @@ input.error:focus {
 
   .signup-card {
     flex-direction: row-reverse;
+    padding: var(--space-xl); /* Maintain padding on desktop */
+  }
+
+  .card-image {
+    flex: 1 1 50%;
+    max-width: 50%;
+    padding: 0; /* No padding needed here */
+  }
+
+  .card-image img {
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
   }
 
   .card-content {
     flex: 1 1 50%;
-    padding: clamp(2rem, 4vw, 2.5rem);
+    padding: 0 0 0 clamp(1.5rem, 3vw, 2.5rem); /* Left padding for desktop */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .success-card {
+    padding: var(--space-xl);
   }
 
   .success-content {
-    padding: clamp(2rem, 4vw, 3rem);
+    padding: clamp(1.5rem, 3vw, 2.5rem) 0 0 0;
   }
 }
 
@@ -385,12 +376,22 @@ input.error:focus {
     border-radius: 0;
   }
 
+  .signup-card {
+    padding: var(--space-lg); /* Slightly less padding on very small screens */
+    border-radius: 0;
+  }
+
   .card-content {
-    padding: var(--space-xl) var(--space-lg);
+    padding: var(--space-lg) 0 0 0;
+  }
+
+  .success-card {
+    padding: var(--space-lg);
+    border-radius: 0;
   }
 
   .success-content {
-    padding: var(--space-xl) var(--space-lg);
+    padding: var(--space-lg) 0 0 0;
   }
 
   .benefit-list li {
